@@ -21,6 +21,9 @@ fetch(pokeUrl)
     
 });
 
+parentEl.addEventListener('click', function onClick(event) {
+    event.target.style.backgroundColor = 'red';
+});
 
 // fetch(quoteUrl)
 // .then((response) => response.json())
