@@ -11,9 +11,12 @@ fetch(pokeUrl)
         var gridItem = document.createElement('div');
         gridItem.style.height = '200px'; 
         gridItem.style.width = '200px'; 
-        gridItem.style.border = "2px dotted black";
+        gridItem.style.border = "2px solid black";
         gridItem.style.padding = "8px";
         gridItem.style.backgroundColor = "gray";
+        gridItem.style.backgroundImage = `url('./sprites/${i+1}.png')`;
+        gridItem.style.backgroundRepeat = "no-repeat";
+        gridItem.style.backgroundPosition = "center";
         var label = pokemon[i].name;
         gridItem.textContent = label;
         parentEl.appendChild(gridItem);
@@ -24,6 +27,7 @@ fetch(pokeUrl)
 parentEl.addEventListener('click', function onClick(event) {
     event.target.style.backgroundColor = 'red';
 });
+
 
 // fetch(quoteUrl)
 // .then((response) => response.json())
