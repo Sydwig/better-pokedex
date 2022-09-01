@@ -1,6 +1,8 @@
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon?limit=151'
 var quoteUrl = 'https://api.quotable.io/random' 
 var parentEl = document.querySelector('#pokemon');
+var myModal = document.getElementById('modal1');
+
 
 fetch(pokeUrl)
 .then((response) => response.json())
@@ -17,6 +19,8 @@ fetch(pokeUrl)
         gridItem.style.backgroundImage = `url('./sprites/${i+1}.png')`;
         gridItem.style.backgroundRepeat = "no-repeat";
         gridItem.style.backgroundPosition = "center";
+        gridItem.setAttribute('data-bs-toggle', 'modal');
+        gridItem.setAttribute('data-bs-target', '#modal1');
         var label = pokemon[i].name;
         gridItem.textContent = label;
         parentEl.appendChild(gridItem);
@@ -28,10 +32,15 @@ parentEl.addEventListener('click', function onClick(event) {
     event.target.style.backgroundColor = 'red';
 });
 
+fetch(quoteUrl)
+.then((response) => response.json())
+.then((data) => {
+    var randoQuote = data 
+});
 
-// fetch(quoteUrl)
-// .then((response) => response.json())
-// .then((data) => console.log(data));
+// myModal.addEventListener('shown.bs.modal', () => {
+//     })
+    
 
 
 
