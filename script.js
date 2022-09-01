@@ -34,15 +34,19 @@ parentEl.addEventListener('click', function onClick(event) {
     event.target.style.backgroundColor = 'red';
 });
 
+
 fetch(quoteUrl)
 .then((response) => response.json())
 .then((data) => {
     var randoQuote = data 
+    var quoteEl = document.querySelector('p');
+    quoteEl.textContent = randoQuote
 });
 
-// myModal.addEventListener('shown.bs.modal', () => {
-//     })
-    
+function closeModal() {
+    document.getElementById('modal1').style.display = 'none';
+}
+
 
 
 
