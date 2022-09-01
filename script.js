@@ -15,7 +15,9 @@ fetch(pokeUrl)
         gridItem.style.width = '200px'; 
         gridItem.style.border = "2px solid black";
         gridItem.style.padding = "8px";
+        gridItem.style.margin = "10px";
         gridItem.style.backgroundColor = "gray";
+        gridItem.style.borderRadius = "10px";
         gridItem.style.backgroundImage = `url('./sprites/${i+1}.png')`;
         gridItem.style.backgroundRepeat = "no-repeat";
         gridItem.style.backgroundPosition = "center";
