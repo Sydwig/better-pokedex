@@ -1,14 +1,15 @@
+// global variables
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon?limit=151'
 var quoteUrl = 'https://api.quotable.io/random' 
 var parentEl = document.querySelector('#pokemon');
 var myModal = document.getElementById('modal1');
 
-
+// poke api url fetch request
 fetch(pokeUrl)
 .then((response) => response.json())
 .then((data) => {
     var pokemon = data.results;
-    // CODE GOES HERE
+// for loop for showing each pokemon name, picture, and modal prompt
     for (var i = 0; i < pokemon.length; i++){
         var gridItem = document.createElement('div');
         gridItem.style.height = '200px'; 
@@ -30,20 +31,21 @@ fetch(pokeUrl)
     
 });
 
+// function to change background color of each pokemon to signify that that pokemon has been caught
 parentEl.addEventListener('click', function onClick(event) {
     event.target.style.backgroundColor = 'red';
 });
 
-
+// quote api fetch and putting it inside the modal prompt
 fetch(quoteUrl)
 .then((response) => response.json())
 .then((data) => {
     var randoQuote = data.content
-    
     var quoteEl = document.querySelector('p');
     quoteEl.textContent = randoQuote
 });
 
+// function to close the modal using the close button
 function closeModal() {
     document.getElementById('modal1').style.display = 'none';
 }
