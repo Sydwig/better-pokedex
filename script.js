@@ -38,7 +38,8 @@ parentEl.addEventListener('click', function onClick(event) {
 fetch(quoteUrl)
 .then((response) => response.json())
 .then((data) => {
-    var randoQuote = data 
+    var randoQuote = data.content
+    
     var quoteEl = document.querySelector('p');
     quoteEl.textContent = randoQuote
 });
