@@ -11,6 +11,12 @@ header {
     color: whitesmoke;
     transition: ease-in-out 300ms;
 }
+header {
+    font-size: xx-large;
+    background-color: gray;
+    color:#150029;
+    margin-bottom: 10px;
+}
 
 body {
     background-color: #150029;
