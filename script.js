@@ -41,6 +41,10 @@ parentEl.addEventListener('click', function onClick(event) {
             var quoteEl = document.querySelector('p');
             quoteEl.textContent = randoQuote;
         });
+       var bgColor = event.target.style.backgroundColor;
+        if (bgColor === 'red'){
+            localStorage.setItem(bgColor , 'red')
+        }
 });
 
 
