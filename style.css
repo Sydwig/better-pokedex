@@ -41,3 +41,12 @@ body {
     transform: 0.9;
     background-color: #150029;
 }
+
+#reset {
+    display: block;
+    width: 200px;    
+}
+
+.margin-auto {
+    margin: 0 auto;
+}

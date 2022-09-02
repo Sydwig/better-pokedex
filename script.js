@@ -11,6 +11,8 @@ fetch(pokeUrl)
     .then((response) => response.json())
     .then((data) => {
         var pokemon = data.results;
+        pokemonStorage = pokemon
+        console.log(pokemon)
         // for loop for showing each pokemon name, picture, and modal prompt
         for (var i = 0; i < pokemon.length; i++) {
             var gridItem = document.createElement('div');
@@ -32,6 +34,7 @@ fetch(pokeUrl)
             gridItem.textContent = label;
             parentEl.appendChild(gridItem);
         }
+
     });
 
 // function to change background color of each pokemon to signify that that pokemon has been caught and fetches quote api to put quote into modal
@@ -47,7 +50,9 @@ parentEl.addEventListener('click', function onClick(event) {
         });
        var bgColor = event.target.style.backgroundColor;
         if (bgColor === 'red'){
-            localStorage.setItem(bgColor , 'red')
+            // need to fix this part of code only
+            var locPok = Array.from(pokemonStorage);
+            localStorage.setItem('collected-Pokemon', JSON.stringify(locPok.name))
         }
 });
 
@@ -56,7 +61,11 @@ function closeModal() {
     document.getElementById('modal1').style.display = 'none';
 }
 
+// resets local storage and bg div colors
+var resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', clearBtn);
+
 function clearBtn() {
     localStorage.clear();
-
+    console.log(gridItem)
 }
