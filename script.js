@@ -3,6 +3,8 @@ var pokeUrl = 'https://pokeapi.co/api/v2/pokemon?limit=151'
 var quoteUrl = 'https://api.quotable.io/random'
 var parentEl = document.querySelector('#pokemon');
 var myModal = document.getElementById('modal1');
+var caught = localStorage.getItem('caught')
+
 
 // poke api url fetch request
 fetch(pokeUrl)
@@ -19,20 +21,22 @@ fetch(pokeUrl)
             gridItem.style.margin = "10px";
             gridItem.style.backgroundColor = "gray";
             gridItem.style.borderRadius = "10px";
+            gridItem.style.borderColor = "black";
             gridItem.style.backgroundImage = `url('./sprites/${i + 1}.png')`;
             gridItem.style.backgroundRepeat = "no-repeat";
             gridItem.style.backgroundPosition = "center";
+            gridItem.style.backgroundSize = "150px";
             gridItem.setAttribute('data-bs-toggle', 'modal');
             gridItem.setAttribute('data-bs-target', '#modal1');
             var label = pokemon[i].name;
             gridItem.textContent = label;
             parentEl.appendChild(gridItem);
         }
-
     });
 
 // function to change background color of each pokemon to signify that that pokemon has been caught and fetches quote api to put quote into modal
 parentEl.addEventListener('click', function onClick(event) {
+    event.preventDefault();
     event.target.style.backgroundColor = 'red';
     fetch(quoteUrl)
         .then((response) => response.json())
@@ -46,7 +50,6 @@ parentEl.addEventListener('click', function onClick(event) {
             localStorage.setItem(bgColor , 'red')
         }
 });
-
 
 // function to close the modal using the close button
 function closeModal() {
