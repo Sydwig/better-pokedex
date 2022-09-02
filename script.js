@@ -40,7 +40,9 @@ fetch(pokeUrl)
 // function to change background color of each pokemon to signify that that pokemon has been caught and fetches quote api to put quote into modal
 parentEl.addEventListener('click', function onClick(event) {
     event.preventDefault();
-    event.target.style.backgroundColor = 'red';
+    if (event.target.style.backgroundColor === 'gray') { //allows background color to be reset after clicking
+        event.target.style.backgroundColor = 'red'}
+    else {event.target.style.backgroundColor = 'gray'}
     fetch(quoteUrl)
         .then((response) => response.json())
         .then((data) => {
